@@ -12,20 +12,12 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
-source <(kubectl completion bash)
-
-# Source dx completion
-if [ -f /git/dx-utils/completion/dx-completion.bash ]; then
-	. /git/dx-utils/completion/dx-completion.bash
-fi
-
 export LD_LIBRARY_PATH=/usr/local/lib64/:/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
-alias vim=vimx
+alias vim=nvim
 alias pip=pip3
-export EDITOR=vimx
-export TERM="xterm-256color"
+export EDITOR=nvim
+# export TERM="xterm-256color"
 set -o vi
 bind '"jk":vi-movement-mode'
 
