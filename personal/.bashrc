@@ -32,7 +32,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Get active git branch
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
 }
 
-export PS1="\[\e[1;32m\]\u\[\e[m\]:\[\e[1;34m\]\W\[\e[m\] \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+# export PS1="\[\e[1;32m\]\u\[\e[m\]:\[\e[1;34m\]\W\[\e[m\] \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+export PS1="\[\e[38;5;214m\]\u\[\e[m\]:\[\e[38;5;108m\]\W\[\e[m\] \[\e[38;5;167m\]\$(parse_git_branch)\[\e[00m\]\$ "
