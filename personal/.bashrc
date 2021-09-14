@@ -16,6 +16,7 @@ export LD_LIBRARY_PATH=/usr/local/lib64/:/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
 alias vim=nvim
 alias pip=pip3
+export SUDO_EDITOR=vim
 export EDITOR=nvim
 # export TERM="xterm-256color"
 set -o vi
