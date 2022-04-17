@@ -8,10 +8,17 @@ Plug 'sirver/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'will133/vim-dirdiff'
 Plug 'gruvbox-community/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Dart
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+
 
 call plug#end()
 
@@ -88,6 +95,9 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+let g:vimtex_compiler_latexmk = {
+            \ 'build_dir' : 'build',
+            \}
 "Ultisnips
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
