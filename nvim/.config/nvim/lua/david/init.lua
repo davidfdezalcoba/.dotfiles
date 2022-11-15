@@ -1,0 +1,8 @@
+require("david.set")
+require("david.packer")
+require("david.netrw")
+require("david.keymap")
+require("david.indent")
+require("david.debugger")
+require("david.treesitter-context")
+require("david.treesitter")

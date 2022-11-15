@@ -18,14 +18,14 @@ snippet template "Basic template" b
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[dutch]{babel}
+%\usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb}
 
 
 % figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
+%\usepackage{import}
+%\usepackage{xifthen}
+%\pdfminorversion=7
 \usepackage{pdfpages}
 \usepackage{transparent}
 \newcommand{\incfig}[1]{%
@@ -51,7 +51,7 @@ snippet ... "ldots" iA
 \ldots
 endsnippet
 
-snippet table "Table environment" b
+snippet table "Table environment" bA
 \begin{table}[${1:htpb}]
 	\centering
 	\caption{${2:caption}}
@@ -62,7 +62,7 @@ snippet table "Table environment" b
 \end{table}
 endsnippet
 
-snippet fig "Figure environment" b
+snippet fig "Figure environment" bA
 \begin{figure}[${1:htpb}]
 	\centering
 	${2:\includegraphics[width=0.8\textwidth]{$3}}

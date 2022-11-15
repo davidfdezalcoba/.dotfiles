@@ -1,14 +1,15 @@
 "Start plugin section
 call plug#begin('~/.config/.vim/nplugged')
 
-Plug 'Yggdroot/indentLine'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'Yggdroot/indentLine'
+" Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
+" Plug 'sirver/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'will133/vim-dirdiff'
 Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -113,7 +114,24 @@ let g:indentLine_setConceal = 0
 " set term=xterm-256color
 " set mouse priority to vim over tmux
 set mouse=a
+nnoremap <silent> <C-h> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>
+nnoremap <silent> <C-j> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>
+nnoremap <silent> <C-k> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>
+nnoremap <silent> <C-l> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>
+nnoremap <silent> <C-\> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>
+nnoremap <silent> <C-Space> :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>
+
+
 " Fugitive Conflict Resolution
 nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
+
+" CoC
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" dart
+let g:lsc_dart_sdk_path = '/home/davidfdezalcoba/snap/flutter/common/flutter/bin/cache/dart-sdk'
