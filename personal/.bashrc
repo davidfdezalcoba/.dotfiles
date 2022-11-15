@@ -16,8 +16,6 @@ export LD_LIBRARY_PATH=/usr/local/lib64/:/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
 alias vim=nvim
 alias pip=pip3
-alias matlab="matlab -nodesktop -nosplash"
-alias kubecnp="kubectl -s https://c4.par01.containers.cloud.ibm.com:31347 --certificate-authority=$HOME'/clients/cnp/certs/ca.crt' --token=$(cat $HOME/clients/cnp/certs/token)"
 export SUDO_EDITOR=vim
 export EDITOR=nvim
 # export TERM="xterm-256color"
@@ -40,4 +38,3 @@ parse_git_branch() {
 
 # export PS1="\[\e[1;32m\]\u\[\e[m\]:\[\e[1;34m\]\W\[\e[m\] \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 export PS1="\[\e[38;5;214m\]\u\[\e[m\]:\[\e[38;5;108m\]\W\[\e[m\] \[\e[38;5;167m\]\$(parse_git_branch)\[\e[00m\]\$ "
-. "$HOME/.cargo/env"
