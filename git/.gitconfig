@@ -4,9 +4,14 @@
 [alias]
 	conflicts = !vim $(git diff --name-only --diff-filter=U)
 [diff]
-  tool = default-difftool
-[difftool "default-difftool"]
-  cmd = vimx -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE # '+syntax off'
+    tool = nvimdiff2
+[difftool "nvimdiff2"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd l\"
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
+[mergetool]
+  keepBackup = false
+  prompt = false

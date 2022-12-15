@@ -15,6 +15,9 @@ nnoremap("-", ":Explore<CR>")
 nnoremap("<F5>", ":source $MYVIMRC<CR>")
 inoremap("<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 
+-- Next diff in the middle 
+nnoremap("]c", "j]czz")
+
 nnoremap("<C-h>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", { silent = true })
 nnoremap("<C-j>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", { silent = true })
 nnoremap("<C-k>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", { silent = true })
