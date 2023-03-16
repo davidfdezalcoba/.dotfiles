@@ -1,4 +1,4 @@
-local nnoremap = require("david.keymap").nnoremap
+-- local nnoremap = require("david.keymap").nnoremap
 
 function ContextSetup(show_all_context)
     require("treesitter-context").setup({
@@ -35,6 +35,6 @@ function ContextSetup(show_all_context)
     })
 end
 
-nnoremap("<leader>cf", function() ContextSetup(true) end)
-nnoremap("<leader>cp", function() ContextSetup(false) end)
+-- nnoremap("<leader>cf", function() ContextSetup(true) end)
+-- nnoremap("<leader>cp", function() ContextSetup(false) end)
 ContextSetup(false)
