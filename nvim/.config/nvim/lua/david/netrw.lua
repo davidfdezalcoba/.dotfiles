@@ -12,7 +12,7 @@ vim.g.netrw_hide = 1
 vim.g.tex_flavor='latex'
 vim.g.vimtex_view_method='zathura'
 vim.g.vimtex_quickfix_mode=0
-vim.g.UltiSnipsExpandTrigger='<tab>'
-vim.g.UltiSnipsJumpForwardTrigger='<tab>'
+vim.g.UltiSnipsExpandTrigger='<leader><tab>'
+vim.g.UltiSnipsJumpForwardTrigger='<leader><tab>'
 vim.g.UltiSnipsJumpBackwardTrigger='<s-tab>'
 

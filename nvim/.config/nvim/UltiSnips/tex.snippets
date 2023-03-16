@@ -1,5 +1,6 @@
 global !p
 def math():
+	print(vim.eval('vimtex#syntax#in_mathzone()'))
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 
 def comment(): 
@@ -294,6 +295,11 @@ snippet sq "\sqrt{}" iA
 endsnippet
 
 context "math()"
+snippet dag "dagger" iA
+^{\dagger}
+endsnippet
+
+context "math()"
 snippet sr "^2" iA
 ^2
 endsnippet
@@ -306,6 +312,16 @@ endsnippet
 context "math()"
 snippet td "to the ... power" iA
 ^{$1}$0
+endsnippet
+
+context "math()"
+snippet bra "bra" iA
+\bra{${1:${VISUAL}}} $0
+endsnippet
+
+context "math()"
+snippet ket "ket" iA
+\ket{${1:${VISUAL}}} $0
 endsnippet
 
 context "math()"
@@ -571,6 +587,9 @@ snippet <> "hokje" iA
 \diamond 
 endsnippet
 
+snippet vphi "varphi" iA
+\varphi
+endsnippet
 
 context "math()"
 snippet '(?<!i)sts' "text subscript" irA

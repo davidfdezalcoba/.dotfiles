@@ -30,6 +30,10 @@ cmp.setup({
 		end,
 	},
 
+    completion = {
+      autocomplete = false
+    },
+
 	mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -76,7 +80,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
-		{ name = "youtube" },
+		{ name = "path" },
 	},
 
 })
@@ -135,6 +139,18 @@ require("flutter-tools").setup {
         end,
     },
     -- flutter_path = "/home/davidfdezalcoba/snap/flutter/common/flutter",
+}
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 100
+        }
+      }
+    }
+  }
 }
 
 local opts = {
