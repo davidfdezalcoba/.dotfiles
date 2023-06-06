@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["b64.nvim"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/b64.nvim",
+    url = "https://github.com/taybart/b64.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -89,6 +94,16 @@ _G.packer_plugins = {
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -98,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
     url = "https://github.com/akinsho/flutter-tools.nvim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["glow.nvim"] = {
     loaded = true,
@@ -114,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lsp-zero.nvim"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
@@ -128,6 +153,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -223,6 +258,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/vimtex",
     url = "https://github.com/lervag/vimtex"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/davidfdezalcoba/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 

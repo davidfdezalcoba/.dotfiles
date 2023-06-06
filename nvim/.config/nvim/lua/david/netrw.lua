@@ -16,3 +16,4 @@ vim.g.UltiSnipsExpandTrigger='<leader><tab>'
 vim.g.UltiSnipsJumpForwardTrigger='<leader><tab>'
 vim.g.UltiSnipsJumpBackwardTrigger='<s-tab>'
 
+vim.g.DirDiffExcludes = ".git"

@@ -18,6 +18,7 @@
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
 
+    use { 'taybart/b64.nvim' }
     
 	-- Replacing coc
     -- use("neovim/nvim-lspconfig")
