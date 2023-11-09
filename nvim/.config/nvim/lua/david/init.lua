@@ -1,5 +1,5 @@
 require("david.set")
-require("david.packer")
+require("david.lazy")
 require("david.netrw")
 require("david.keymap")
 require("david.indent")
