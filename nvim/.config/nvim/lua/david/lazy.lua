@@ -19,7 +19,7 @@ require("lazy").setup({
 
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    "nvim-telescope/telescope-fzy-native.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
     
     -- Treeshitter
     {
