@@ -1,5 +1,6 @@
 require("david.set")
 require("david.lazy")
+require("david.gitsigns")
 require("david.netrw")
 require("david.keymap")
 require("david.indent")

@@ -32,8 +32,9 @@ require("lazy").setup({
 
     "mbbill/undotree",
     "tpope/vim-fugitive",
-
+    "lewis6991/gitsigns.nvim",
     "taybart/b64.nvim",
+
     
     "nvim-lua/lsp_extensions.nvim",
     "glepnir/lspsaga.nvim",
