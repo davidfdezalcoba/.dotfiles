@@ -22,7 +22,8 @@ vim.diagnostic.config({
   },
 })
 
-lsp_zero.on_attach(function(client, bufnr)
+local on_attach = function(client, bufnr)
+
   lsp_zero.default_keymaps({buffer = bufnr})
 
   vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, { buffer = bufnr })
@@ -31,9 +32,9 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { buffer = bufnr })
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { buffer = bufnr })
 
-  -- In case we want to use Telescope
-  -- vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', {buffer = bufnr})
-end)
+end
+
+lsp_zero.on_attach(on_attach)
 
 --------------------------------
 ------- LANGUAGE SERVERS -------
@@ -41,15 +42,13 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer', 'pylsp', 'omnisharp'},
+
+  ensure_installed = {'tsserver', 'rust_analyzer', 'pylsp', 'lua_ls'},
   handlers = {
     lsp_zero.default_setup,
-    function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
-    end,
-    ["pylsp"] = function ()
-        local lspconfig = require("lspconfig")
-        lspconfig.pylsp.setup {
+
+    pylsp = function ()
+        require("lspconfig").pylsp.setup {
             settings = {
                 pylsp = {
                     plugins = {
@@ -62,12 +61,13 @@ require('mason-lspconfig').setup({
             }
         }
     end,
-    ["rust_analyzer"] = function ()
+
+    rust_analyzer = function ()
         require("rust-tools").setup {}
     end,
-    ["lua_ls"] = function ()
-        local lspconfig = require("lspconfig")
-        lspconfig.lua_ls.setup {
+
+    lua_ls = function ()
+        require("lspconfig").lua_ls.setup {
             settings = {
                 Lua = {
                     diagnostics = {
@@ -78,6 +78,17 @@ require('mason-lspconfig').setup({
         }
     end,
   }
+})
+
+--------------------------------------------------------------------------
+------------------ C # ---------------------------------------------------
+--------------------------------------------------------------------------
+
+require("roslyn").setup({
+    dotnet_cmd = "dotnet", -- this is the default
+    roslyn_version = "4.9.0-3.23604.10", -- this is the default
+    on_attach = on_attach, -- required
+    capabilities = capabilities, -- required
 })
 
 --------------------------------------------------------------------------
@@ -121,5 +132,3 @@ cmp.setup({
 -- cmp_mappings['<S-Tab>'] = nil
 
 -- lsp_zero.setup()
-
-

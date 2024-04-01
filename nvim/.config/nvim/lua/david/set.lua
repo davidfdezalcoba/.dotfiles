@@ -53,3 +53,5 @@ vim.opt.shortmess:append("c")
 -- vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = ","
+
+vim.g.python3_host_prog = '/home/davidfdezalcoba/.pyenv/versions/py3nvim/bin/python'

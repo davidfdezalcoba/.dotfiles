@@ -59,6 +59,9 @@ require("lazy").setup({
     {'williamboman/mason-lspconfig.nvim'},
     {'neovim/nvim-lspconfig'},
 
+    -- Roslyn C# until Mason supports it
+    {'jmederosalvarado/roslyn.nvim'},
+
     -- Autocompletion
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/cmp-nvim-lsp'},
@@ -77,6 +80,7 @@ require("lazy").setup({
 
 	-- Debugger (Learn to use lollll)
     "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
 
