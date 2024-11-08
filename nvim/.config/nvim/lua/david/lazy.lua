@@ -18,13 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     -- Already lua nvim-ed
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {},
-    },
+    "lukas-reineke/indent-blankline.nvim",
 
     "alexghergh/nvim-tmux-navigation",
 
@@ -84,7 +78,7 @@ require("lazy").setup({
     "folke/zen-mode.nvim",
 
     -- Syntax highlighting
-    'towolf/vim-helm',
+    {'towolf/vim-helm', ft = 'helm'},
 
 	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
