@@ -1,26 +1,37 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
     -- Already lua nvim-ed
-    "lukas-reineke/indent-blankline.nvim",
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+    },
+
     "alexghergh/nvim-tmux-navigation",
 
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    
+
     -- Treeshitter
     {
         "nvim-treesitter/nvim-treesitter",
@@ -35,7 +46,6 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     "taybart/b64.nvim",
 
-    
     "nvim-lua/lsp_extensions.nvim",
     "glepnir/lspsaga.nvim",
     "onsails/lspkind-nvim",
@@ -52,15 +62,10 @@ require("lazy").setup({
         config = true,
     },
 
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-
     -- LSP Support
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     {'neovim/nvim-lspconfig'},
-
-    -- Roslyn C# until Mason supports it
-    {'jmederosalvarado/roslyn.nvim'},
 
     -- Autocompletion
     {'hrsh7th/nvim-cmp'},
@@ -73,12 +78,15 @@ require("lazy").setup({
     {'L3MON4D3/LuaSnip'},
     {'rafamadriz/friendly-snippets'},
 
+    -- Roslyn C# until Mason supports it
+    {'jmederosalvarado/roslyn.nvim'},
+
     "folke/zen-mode.nvim",
 
-    -- Markdown viewer yeiiiiiiia
-    "ellisonleao/glow.nvim",
+    -- Syntax highlighting
+    'towolf/vim-helm',
 
-	-- Debugger (Learn to use lollll)
+	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",

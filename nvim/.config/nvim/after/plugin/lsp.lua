@@ -1,18 +1,18 @@
-local lsp_zero = require("lsp-zero")
-
 --------------------------------------------------------------------------
 ------------------ LSP CONFIG --------------------------------------------
 --------------------------------------------------------------------------
-lsp_zero.set_sign_icons({
-  error = '✘',
-  warn = '▲',
-  hint = '⚑',
-  info = ''
-})
 
 vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '✘',
+      [vim.diagnostic.severity.WARN] = '▲',
+      [vim.diagnostic.severity.HINT] = '⚑',
+      [vim.diagnostic.severity.INFO] = '»',
+    },
+  },
   float = {
     style = 'minimal',
     border = 'rounded',
@@ -22,19 +22,39 @@ vim.diagnostic.config({
   },
 })
 
-local on_attach = function(client, bufnr)
+-- Reserve a space in the gutter
+-- This will avoid an annoying layout shift in the screen
+vim.opt.signcolumn = 'yes'
 
-  lsp_zero.default_keymaps({buffer = bufnr})
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
 
-  vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { buffer = bufnr })
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { buffer = bufnr })
+-- This is where you enable features that only work
+-- if there is a language server active in the file
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = {buffer = event.buf}
 
-end
-
-lsp_zero.on_attach(on_attach)
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    vim.keymap.set('n', '<leader>vws', '<cmd>lua vim.lsp.buf.workspace_symbol()<cr>', opts)
+    vim.keymap.set('n', '<leader>vrn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set('n', '<leader>vca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', '<leader>vd', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+  end,
+})
 
 --------------------------------
 ------- LANGUAGE SERVERS -------
@@ -43,9 +63,12 @@ lsp_zero.on_attach(on_attach)
 require('mason').setup({})
 require('mason-lspconfig').setup({
 
-  ensure_installed = {'tsserver', 'rust_analyzer', 'pylsp', 'lua_ls'},
+  ensure_installed = {'ts_ls', 'rust_analyzer', 'pylsp', 'lua_ls', 'helm_ls'},
   handlers = {
-    lsp_zero.default_setup,
+
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
 
     pylsp = function ()
         require("lspconfig").pylsp.setup {
@@ -78,6 +101,7 @@ require('mason-lspconfig').setup({
         }
     end,
   }
+
 })
 
 --------------------------------------------------------------------------
@@ -87,8 +111,8 @@ require('mason-lspconfig').setup({
 require("roslyn").setup({
     dotnet_cmd = "dotnet", -- this is the default
     roslyn_version = "4.9.0-3.23604.10", -- this is the default
-    on_attach = on_attach, -- required
-    capabilities = capabilities, -- required
+    -- on_attach = on_attach, -- required
+    -- capabilities = capabilities, -- required
 })
 
 --------------------------------------------------------------------------
@@ -130,5 +154,3 @@ cmp.setup({
 
 -- cmp_mappings['<Tab>'] = nil
 -- cmp_mappings['<S-Tab>'] = nil
-
--- lsp_zero.setup()
