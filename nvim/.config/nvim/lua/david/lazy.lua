@@ -78,7 +78,7 @@ require("lazy").setup({
     "folke/zen-mode.nvim",
 
     -- Syntax highlighting
-    {'towolf/vim-helm', ft = 'helm'},
+    {'towolf/vim-helm', ft = {'helm', 'mustache'}},
 
 	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
