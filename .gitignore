@@ -1,2 +1,4 @@
 vim/.vim/undodir/*
 *__pycache__*
+yazi/.config/yazi/plugins
+yazi/.config/yazi/flavors
