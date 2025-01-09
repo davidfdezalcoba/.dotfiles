@@ -73,7 +73,7 @@ require("lazy").setup({
     {'rafamadriz/friendly-snippets'},
 
     -- Roslyn C# until Mason supports it
-    {'jmederosalvarado/roslyn.nvim'},
+    'seblj/roslyn.nvim',
 
     "folke/zen-mode.nvim",
 
