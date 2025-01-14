@@ -38,6 +38,7 @@ vim.opt.statusline = "%F%m%=%l/%L:%c"
 
 vim.opt.spelllang = "es,en_gb"
 vim.opt.foldmethod = "expr"
+vim.opt.foldlevelstart=99
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Give more space for displaying messages.
