@@ -32,7 +32,7 @@ require("lazy").setup({
         build = ":TSUpdate"
     },
 
-    "romgrk/nvim-treesitter-context",
+    "nvim-treesitter/nvim-treesitter-context",
     "nvim-treesitter/playground",
 
     "mbbill/undotree",
@@ -79,6 +79,7 @@ require("lazy").setup({
 
     -- Syntax highlighting
     {'towolf/vim-helm', ft = {'helm', 'mustache'}},
+    {'google/vim-jsonnet'},
 
 	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
