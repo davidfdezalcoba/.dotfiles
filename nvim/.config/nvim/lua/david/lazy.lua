@@ -80,6 +80,7 @@ require("lazy").setup({
     -- Syntax highlighting
     {'towolf/vim-helm', ft = {'helm', 'mustache'}},
     {'google/vim-jsonnet'},
+    {'lepture/vim-jinja'},
 
 	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
