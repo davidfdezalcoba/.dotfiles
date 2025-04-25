@@ -48,7 +48,7 @@ require("lazy").setup({
 
     {
         'akinsho/flutter-tools.nvim',
-        lazy = false,
+        -- lazy = false,
         dependencies = {
             'nvim-lua/plenary.nvim',
             'stevearc/dressing.nvim', -- optional for vim.ui.select
@@ -78,9 +78,9 @@ require("lazy").setup({
     "folke/zen-mode.nvim",
 
     -- Syntax highlighting
-    {'towolf/vim-helm', ft = {'helm', 'mustache'}, lazy = false},
-    {'google/vim-jsonnet', lazy = false},
-    {'lepture/vim-jinja', lazy = false},
+    {'towolf/vim-helm', ft = {'helm', 'mustache'}},
+    {'google/vim-jsonnet'},
+    {'lepture/vim-jinja'},
 
 	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
