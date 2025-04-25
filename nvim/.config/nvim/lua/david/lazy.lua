@@ -78,9 +78,9 @@ require("lazy").setup({
     "folke/zen-mode.nvim",
 
     -- Syntax highlighting
-    {'towolf/vim-helm', ft = {'helm', 'mustache'}},
-    {'google/vim-jsonnet'},
-    {'lepture/vim-jinja'},
+    {'towolf/vim-helm', ft = {'helm', 'mustache'}, lazy = false},
+    {'google/vim-jsonnet', lazy = false},
+    {'lepture/vim-jinja', lazy = false},
 
 	-- Debugger (Learn how to use lollll)
     "mfussenegger/nvim-dap",
