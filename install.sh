@@ -7,7 +7,7 @@ setup_neovim() {
         echo "Neovim ${NEOVIM_VERSION} already installed!"
     else
         echo 'Removing previous neovim version'
-        if pdkg -s neovim > /dev/null 2&>1; then
+        if pdkg -s neovim > /dev/null 2>&1; then
             sudo apt-get remove neovim
         fi
         sudo rm -f $(which nvim)
@@ -20,7 +20,7 @@ setup_neovim() {
 }
 
 setup_stow() {
-    if ! dpkg -s stow > /dev/null 2&>1; then
+    if ! dpkg -s stow > /dev/null 2>&1; then
         sudo apt-get update
         sudo apt-get install stow
     fi
