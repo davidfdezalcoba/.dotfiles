@@ -16,6 +16,12 @@ setup_neovim() {
         tar xzf /tmp/nvim-linux-x86_64.tar.gz -C /tmp
         chmod +x /tmp/nvim-linux-x86_64/bin/nvim
         sudo mv /tmp/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+        echo 'Updating plugins'
+        nvim --headless "+Lazy! restore" +qa
+        echo 'Updating language servers'
+        nvim --headless "+MasonToolsUpdate" +qa || nvim --headless "+MasonUpdate" +qa
+        echo "Updating Treesitter parsers..."
+        nvim --headless "+TSUpdateSync" +qa
     fi
 }
 
