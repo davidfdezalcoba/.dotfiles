@@ -22,7 +22,7 @@ setup_neovim() {
     echo 'Updating plugins'
     nvim --headless "+Lazy! restore" +qa
     echo 'Updating language servers'
-    nvim --headless "+MasonToolsUpdate" +qa || nvim --headless "+MasonUpdate" +qa
+    nvim --headless "+MasonUpdate" +qa
     echo "Updating Treesitter parsers..."
     nvim --headless "+TSUpdateSync" +qa
 
