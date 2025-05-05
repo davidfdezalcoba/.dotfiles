@@ -98,4 +98,4 @@ vim.keymap.set('n', '<leader>dr', function() dap.repl.open() end)
 vim.keymap.set('n', '<leader>dl', function() dap.run_last() end)
 vim.keymap.set('n', '<leader>rc', function() dap.run_to_cursor() end)
 
-require("david.debugger.csharp");
+require("davidfdezalcoba.debugger.csharp");
