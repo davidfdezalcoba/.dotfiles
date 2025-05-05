@@ -3,6 +3,7 @@
 NEOVIM_VERSION=v0.11.1
 
 setup_neovim() {
+
     if [[ "$(nvim --version | head -n 1 | awk '{print $2}')" = "${NEOVIM_VERSION}" ]]; then
         echo "Neovim ${NEOVIM_VERSION} already installed!"
     else
@@ -16,13 +17,15 @@ setup_neovim() {
         tar xzf /tmp/nvim-linux-x86_64.tar.gz -C /tmp
         chmod +x /tmp/nvim-linux-x86_64/bin/nvim
         sudo mv /tmp/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
-        echo 'Updating plugins'
-        nvim --headless "+Lazy! restore" +qa
-        echo 'Updating language servers'
-        nvim --headless "+MasonToolsUpdate" +qa || nvim --headless "+MasonUpdate" +qa
-        echo "Updating Treesitter parsers..."
-        nvim --headless "+TSUpdateSync" +qa
     fi
+
+    echo 'Updating plugins'
+    nvim --headless "+Lazy! restore" +qa
+    echo 'Updating language servers'
+    nvim --headless "+MasonToolsUpdate" +qa || nvim --headless "+MasonUpdate" +qa
+    echo "Updating Treesitter parsers..."
+    nvim --headless "+TSUpdateSync" +qa
+
 }
 
 setup_stow() {
