@@ -1,6 +1,4 @@
 require("davidfdezalcoba.lazy")
 require("davidfdezalcoba.opts")
 require("davidfdezalcoba.keymap")
-require("davidfdezalcoba.debugger")
-require("davidfdezalcoba.treesitter-context")
-require("davidfdezalcoba.treesitter")
+-- require("davidfdezalcoba.debugger")

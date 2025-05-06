@@ -1,0 +1,44 @@
+return {
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    lazy = false,
+    priority = 1000,
+    opts = {
+      indent = {},
+      input = {},
+      notifier = {},
+      scroll = {},
+      -- words = {},
+      explorer = {},
+      picker = {
+        sources = {
+          explorer = {
+            jump = {
+              close = true
+            },
+            matcher = {
+              fuzzy = true
+            }
+          }
+        }
+      },
+    },
+    keys = {
+      { "-", function() Snacks.explorer() end, desc = "File Explorer" },
+      { "<leader>,", function() Snacks.picker.buffers() end, desc = "File Explorer" },
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+      { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+      { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
+      { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+      { "gD", function() Snacks.picker.lsp_declaration() end, desc = "Goto Definition" },
+      { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+      { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+      { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+      { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
+      { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+      { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+    }
+  }
+}

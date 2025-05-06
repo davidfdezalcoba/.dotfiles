@@ -4,7 +4,7 @@ vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 vim.keymap.set("n", "<leader><space>", "<cmd>nohl<CR>")
 vim.keymap.set("i", "jk", "<esc>")
-vim.keymap.set("n", "-", vim.cmd.Ex)
+-- vim.keymap.set("n", "-", vim.cmd.Ex)
 vim.keymap.set("n", "<F5>", "<cmd>source $MYVIMRC<CR>")
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 

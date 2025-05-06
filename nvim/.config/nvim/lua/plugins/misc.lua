@@ -1,14 +1,17 @@
 return {
   "alexghergh/nvim-tmux-navigation",
-
-  -- Treeshitter
-  {
-      "nvim-treesitter/nvim-treesitter",
-      build = ":TSUpdate"
-  },
+  "will133/vim-dirdiff",
 
   "nvim-treesitter/nvim-treesitter-context",
   "nvim-treesitter/playground",
+
+  {
+    "Wansmer/treesj",
+    keys = {
+      { "<leader>J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
+    },
+    opts = { use_default_keymaps = false, max_join_length = 150 },
+  },
 
   "mbbill/undotree",
   "tpope/vim-fugitive",
@@ -22,12 +25,11 @@ return {
   {'lepture/vim-jinja', ft = {'jinja2', 'j2'}},
 
   -- Debugger (Learn how to use lollll)
-  "mfussenegger/nvim-dap",
-  "nvim-neotest/nvim-nio",
-  "rcarriga/nvim-dap-ui",
-  "theHamsta/nvim-dap-virtual-text",
+  -- "mfussenegger/nvim-dap",
+  -- "nvim-neotest/nvim-nio",
+  -- "rcarriga/nvim-dap-ui",
+  -- "theHamsta/nvim-dap-virtual-text",
 
   -- Legacy
-  "lervag/vimtex",
-  "will133/vim-dirdiff",
+  -- "lervag/vimtex",
 }
