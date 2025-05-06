@@ -61,6 +61,8 @@ setup_neovim() {
     nvim --headless "+Lazy! restore" +qa
     echo 'Updating language servers'
     nvim --headless "+MasonUpdate" +qa
+    echo "Removing previous Treesitter parsers..."
+    nvim --headless "+TSUninstall all" +qa
     echo "Updating Treesitter parsers..."
     nvim --headless "+TSUpdateSync" +qa
 
