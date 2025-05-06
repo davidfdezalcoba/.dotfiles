@@ -37,6 +37,7 @@ setup_neovim() {
         echo "lua ${LUA_VERSION} already installed!"
     else
         echo 'Setting up lua...'
+        sudo apt-get install libreadline-dev
         curl -sLo /tmp/lua-${LUA_VERSION}.tar.gz https://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz
         tar zxpf /tmp/lua-${LUA_VERSION}.tar.gz -C /tmp
         cd /tmp/lua-${LUA_VERSION}
@@ -65,12 +66,12 @@ setup_neovim() {
 
 setup_stow() {
     if ! dpkg -s stow > /dev/null 2>&1; then
-        sudo apt-get update
         sudo apt-get install stow
     fi
 }
 
 main() {
+    sudo apt update || exit 1
     setup_stow
     setup_neovim
 }
