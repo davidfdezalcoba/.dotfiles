@@ -16,10 +16,12 @@ setup_neovim() {
         fi
         sudo rm -f $(which nvim)
         echo 'Setting up neovim...'
-        curl -sLo /tmp/nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux-x86_64.tar.gz
-        tar xzf /tmp/nvim-linux-x86_64.tar.gz -C /tmp
-        chmod +x /tmp/nvim-linux-x86_64/bin/nvim
-        sudo mv /tmp/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+        sudo apt-get install ninja-build gettext cmake curl build-essential
+        git clone https://github.com/neovim/neovim.git /tmp/neovim
+        cd /tmp/neovim
+        git checkout ${NEOVIM_VERSION}
+        make CMAKE_BUILD_TYPE=Release
+        sudo make install
     fi
 
     if [[ "v$(tree-sitter --version | head -n 1 | awk '{print $2}')" = "${TREE_SITTER_VERSION}" ]]; then
