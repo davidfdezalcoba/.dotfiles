@@ -77,16 +77,6 @@ return {
           ensure_installed = {'bashls', 'ts_ls', 'rust_analyzer', 'basedpyright', 'ruff', 'lua_ls', 'helm_ls', 'yamlls'},
         })
 
-        -- enable this until mason-lspconfig 2.x gets GA
-        vim.lsp.enable('bashls')
-        vim.lsp.enable('ts_ls')
-        vim.lsp.enable('rust-analyzer')
-        vim.lsp.enable('basedpyright')
-        vim.lsp.enable('ruff')
-        vim.lsp.enable('lua_ls')
-        vim.lsp.enable('helm_ls')
-        vim.lsp.enable('yamlls')
-
         vim.lsp.config('lua_ls', {
           settings = {
             Lua = {

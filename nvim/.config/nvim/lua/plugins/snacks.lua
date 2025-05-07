@@ -28,6 +28,7 @@ return {
       { "-", function() Snacks.explorer() end, desc = "File Explorer" },
       { "<leader>,", function() Snacks.picker.buffers() end, desc = "File Explorer" },
       { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+      { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
       { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
       { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
