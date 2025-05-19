@@ -74,7 +74,7 @@ return {
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
-          ensure_installed = {'bashls', 'ts_ls', 'rust_analyzer', 'basedpyright', 'ruff', 'lua_ls', 'helm_ls', 'yamlls'},
+          ensure_installed = {'bashls', 'ts_ls', 'rust_analyzer', 'pylsp', 'lua_ls', 'helm_ls', 'yamlls'},
         })
 
         vim.lsp.config('lua_ls', {
