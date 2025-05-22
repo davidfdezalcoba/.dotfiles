@@ -52,7 +52,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        terrafor = {
+        terraform = {
           "terraform_fmt"
         },
         python = {
