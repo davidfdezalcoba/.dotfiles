@@ -52,6 +52,9 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
+        terrafor = {
+          "terraform_fmt"
+        },
         python = {
           "ruff_fix",
           "ruff_format",
@@ -91,7 +94,17 @@ return {
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
-          ensure_installed = {'bashls', 'ts_ls', 'rust_analyzer', 'basedpyright', 'ruff', 'lua_ls', 'helm_ls', 'yamlls'},
+          ensure_installed = {
+            'bashls',
+            'ts_ls',
+            'rust_analyzer',
+            'basedpyright',
+            'ruff',
+            'lua_ls',
+            'helm_ls',
+            'yamlls',
+            'terraformls',
+          },
           automatic_enable = {
             exclude = {
               "ruff"
