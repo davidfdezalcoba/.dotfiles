@@ -49,9 +49,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 return {
   {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        python = {
+          "ruff_fix",
+          "ruff_format",
+          "ruff_organize_imports",
+        },
+      }
+    },
+    keys = {
+      {
+        "<leader>F",
+        function()
+          require("conform").format({ async = true })
+        end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    }
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "stevearc/conform.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
@@ -67,14 +88,15 @@ return {
     },
 
     config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-            }
-        })
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
-          ensure_installed = {'bashls', 'ts_ls', 'rust_analyzer', 'pylsp', 'lua_ls', 'helm_ls', 'yamlls'},
+          ensure_installed = {'bashls', 'ts_ls', 'rust_analyzer', 'basedpyright', 'ruff', 'lua_ls', 'helm_ls', 'yamlls'},
+          automatic_enable = {
+            exclude = {
+              "ruff"
+            }
+          }
         })
 
         vim.lsp.config('lua_ls', {
