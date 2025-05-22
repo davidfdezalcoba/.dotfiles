@@ -122,6 +122,14 @@ return {
           }
         })
 
+        vim.lsp.config('basedpyright', {
+          settings = {
+            basedpyright = {
+              typeCheckingMode = "basic"
+            }
+          }
+        })
+
         local cmp = require('cmp')
         local luasnip = require('luasnip')
 
