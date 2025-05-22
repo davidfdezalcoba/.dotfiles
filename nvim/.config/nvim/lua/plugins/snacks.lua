@@ -36,10 +36,10 @@ return {
       { "gD", function() Snacks.picker.lsp_declaration() end, desc = "Goto Definition" },
       { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
       { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
-      { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
-      { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
-      { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
-      { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+      { "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+      { "<leader>fj", function() Snacks.picker.jumps() end, desc = "Jumps" },
+      { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+      { "<leader>fD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
     }
   }
 }
