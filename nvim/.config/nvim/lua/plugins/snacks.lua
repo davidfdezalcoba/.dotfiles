@@ -26,7 +26,8 @@ return {
     },
     keys = {
       { "-", function() Snacks.explorer() end, desc = "File Explorer" },
-      { "<leader>,", function() Snacks.picker.buffers() end, desc = "File Explorer" },
+      { "<leader>rr", function() Snacks.picker.registers() end, desc = "Registers" },
+      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "File Explorer" },
       { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
       { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
       { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
