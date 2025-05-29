@@ -91,11 +91,13 @@ return {
 			"j-hui/fidget.nvim",
 			"onsails/lspkind-nvim",
 			"nvimdev/lspsaga.nvim",
+      "JavaHello/spring-boot.nvim",
 		},
 
 		config = function()
 			require("fidget").setup({})
 			require("mason").setup()
+			require("mason-nvim-dap").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls",
@@ -114,6 +116,16 @@ return {
 					},
 				},
 			})
+
+      require('spring_boot').init_lsp_commands()
+
+      vim.lsp.config("jdtls", {
+        settings = {
+          init_options = {
+            bundles = require("spring_boot").java_extensions(),
+          },
+        }
+      })
 
 			vim.lsp.config("lua_ls", {
 				settings = {
