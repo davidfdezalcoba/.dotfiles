@@ -48,34 +48,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 return {
-	{
-		"stevearc/conform.nvim",
-		opts = {
-			formatters_by_ft = {
-				lua = {
-					"stylua",
-				},
-				terraform = {
-					"terraform_fmt",
-				},
-				python = {
-					"ruff_fix",
-					"ruff_format",
-					"ruff_organize_imports",
-				},
-			},
-		},
-		keys = {
-			{
-				"<leader>F",
-				function()
-					require("conform").format({ async = true })
-				end,
-				mode = "",
-				desc = "Format buffer",
-			},
-		},
-	},
+	{ "nvim-java/nvim-java",
+    config = function()
+      require("java").setup()
+    end,
+  },
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -91,6 +68,7 @@ return {
 			"j-hui/fidget.nvim",
 			"onsails/lspkind-nvim",
 			"nvimdev/lspsaga.nvim",
+			"nvim-java/nvim-java",
 		},
 
 		config = function()
@@ -114,6 +92,8 @@ return {
 					},
 				},
 			})
+
+			-- require("java").setup()
 
 			vim.lsp.config("lua_ls", {
 				settings = {
@@ -200,5 +180,33 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				lua = {
+					"stylua",
+				},
+				terraform = {
+					"terraform_fmt",
+				},
+				python = {
+					"ruff_fix",
+					"ruff_format",
+					"ruff_organize_imports",
+				},
+			},
+		},
+		keys = {
+			{
+				"<leader>F",
+				function()
+					require("conform").format({ async = true })
+				end,
+				mode = "",
+				desc = "Format buffer",
+			},
+		},
 	},
 }
