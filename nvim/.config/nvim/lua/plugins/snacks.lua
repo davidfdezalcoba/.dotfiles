@@ -4,7 +4,11 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      indent = {},
+      indent = {
+        animate = {
+          enabled = false,
+        },
+      },
       input = {},
       notifier = {},
       scroll = {},
