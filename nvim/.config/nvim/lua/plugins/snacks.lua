@@ -41,6 +41,7 @@ return {
       { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
       { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
       { "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+      { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
       { "<leader>fj", function() Snacks.picker.jumps() end, desc = "Jumps" },
       { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
       { "<leader>fD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
