@@ -172,6 +172,11 @@ return {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close({})
 			end
+			dap.adapters.coreclr = {
+				type = "executable",
+				command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
 		end,
 	},
 	-- { "nvim-neotest/nvim-nio" },
