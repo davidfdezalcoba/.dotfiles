@@ -33,10 +33,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 	callback = function(args)
 		local opts = { buffer = args.buf }
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == "terraformls" then
-      client.server_capabilities.semanticTokensProvider = nil
-    end
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.name == "terraformls" then
+			client.server_capabilities.semanticTokensProvider = nil
+		end
 		vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 		vim.keymap.set("n", "<leader>vd", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 	end,
@@ -100,6 +100,7 @@ return {
 					"ruff",
 					"lua_ls",
 					"helm_ls",
+					"jsonls",
 					"yamlls",
 					"terraformls",
 				},
