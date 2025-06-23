@@ -19,3 +19,7 @@ vim.keymap.set("n", "<C-Space>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmu
 
 vim.keymap.set("v", "<leader>be", "<cmd>lua require'b64'.encode()<cr>", { silent = true, noremap = true})
 vim.keymap.set("n", "<leader>bd", "viW<cmd>lua require'b64'.decode()<cr>", { silent = true, noremap = true})
+
+vim.keymap.set("n", "gC", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })
