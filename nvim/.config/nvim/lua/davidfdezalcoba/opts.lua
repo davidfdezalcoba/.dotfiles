@@ -37,8 +37,8 @@ vim.opt.laststatus = 2
 vim.opt.statusline = "%F%m%=%l/%L:%c"
 
 vim.opt.spelllang = "es,en_gb"
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99
 
@@ -68,11 +68,12 @@ vim.g.netrw_hide = 1
 
 -- vim.g.tex_conceal='abdmg'
 -- vim.g.vimtex_compiler_latexmk = {'build_dir' : 'build'}"
-vim.g.tex_flavor='latex'
-vim.g.vimtex_view_method='zathura'
-vim.g.vimtex_quickfix_mode=0
-vim.g.UltiSnipsExpandTrigger='<leader><tab>'
-vim.g.UltiSnipsJumpForwardTrigger='<leader><tab>'
-vim.g.UltiSnipsJumpBackwardTrigger='<s-tab>'
+vim.g.tex_flavor = "latex"
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_quickfix_mode = 0
+vim.g.UltiSnipsExpandTrigger = "<leader><tab>"
+vim.g.UltiSnipsJumpForwardTrigger = "<leader><tab>"
+vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 vim.g.DirDiffExcludes = ".git"
+vim.o.winborder = "rounded"
