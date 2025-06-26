@@ -135,6 +135,19 @@ return {
 				},
 			})
 
+			vim.lsp.config("rust_analyzer", {
+				settings = {
+					["rust_analizer"] = {
+						diagnostics = {
+							enable = true,
+							experimental = {
+								enable = true,
+							},
+						},
+					},
+				},
+			})
+
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 
