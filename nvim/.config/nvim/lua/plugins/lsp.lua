@@ -148,6 +148,16 @@ return {
 				},
 			})
 
+			vim.lsp.config("yamlls", {
+				settings = {
+					yaml = {
+						schemas = {
+							["kubernetes"] = "/*.yaml",
+						},
+					},
+				},
+			})
+
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 
