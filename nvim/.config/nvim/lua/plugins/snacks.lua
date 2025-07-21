@@ -32,6 +32,7 @@ return {
       { "<leader>rr", function() Snacks.picker.registers() end, desc = "Registers" },
       { "<leader>fb", function() Snacks.picker.buffers() end, desc = "File Explorer" },
       { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+      { "<leader>fG", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
       { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
       { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
