@@ -153,6 +153,7 @@ return {
 					yaml = {
 						schemas = {
 							["kubernetes"] = "/*.yaml",
+							["none"] = "/Chart.yaml",
 						},
 					},
 				},
