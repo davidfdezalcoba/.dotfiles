@@ -18,13 +18,5 @@ return {
 	{ "towolf/vim-helm", ft = { "helm", "mustache" } },
 	{ "google/vim-jsonnet", ft = { "jsonnet" } },
 	{ "lepture/vim-jinja", ft = { "jinja2", "j2" } },
-
-	-- Debugger (Learn how to use lollll)
-	-- "mfussenegger/nvim-dap",
-	-- "nvim-neotest/nvim-nio",
-	-- "rcarriga/nvim-dap-ui",
-	-- "theHamsta/nvim-dap-virtual-text",
-
-	-- Legacy
-	-- "lervag/vimtex",
+	{ "prisma/vim-prisma", ft = { "prisma" } },
 }

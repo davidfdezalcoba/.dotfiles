@@ -44,40 +44,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 return {
 	{
-		"stevearc/conform.nvim",
-		opts = {
-			formatters_by_ft = {
-				lua = {
-					"stylua",
-				},
-				terraform = {
-					"terraform_fmt",
-				},
-				python = {
-					"ruff_fix",
-					"ruff_format",
-					"ruff_organize_imports",
-				},
-				json = {
-					"prettier",
-				},
-				yaml = {
-					"prettier",
-				},
-			},
-		},
-		keys = {
-			{
-				"<leader>F",
-				function()
-					require("conform").format({ async = true })
-				end,
-				mode = "",
-				desc = "Format buffer",
-			},
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",

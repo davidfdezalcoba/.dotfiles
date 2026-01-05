@@ -6,35 +6,176 @@ return {
 			"theHamsta/nvim-dap-virtual-text",
 		},
 		keys = {
-			{ "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Breakpoint Condition" },
-			{ "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-			{ "<leader>dc", function() require("dap").continue() end, desc = "Run/Continue" },
-			{ "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
-			{ "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
-			{ "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
-			{ "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
-			{ "<leader>dj", function() require("dap").down() end, desc = "Down" },
-			{ "<leader>dk", function() require("dap").up() end, desc = "Up" },
-			{ "<leader>dl", function() require("dap").run_last() end, desc = "Run Last" },
-			{ "<leader>do", function() require("dap").step_out() end, desc = "Step Out" },
-			{ "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
-			{ "<leader>dP", function() require("dap").pause() end, desc = "Pause" },
-			{ "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
-			{ "<leader>ds", function() require("dap").session() end, desc = "Session" },
-			{ "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
-			{ "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+			{
+				"<leader>dB",
+				function()
+					require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+				end,
+				desc = "Breakpoint Condition",
+			},
+			{
+				"<leader>db",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				desc = "Toggle Breakpoint",
+			},
+			{
+				"<leader>dc",
+				function()
+					require("dap").continue()
+				end,
+				desc = "Run/Continue",
+			},
+			{
+				"<leader>da",
+				function()
+					require("dap").continue({ before = get_args })
+				end,
+				desc = "Run with Args",
+			},
+			{
+				"<leader>dC",
+				function()
+					require("dap").run_to_cursor()
+				end,
+				desc = "Run to Cursor",
+			},
+			{
+				"<leader>dg",
+				function()
+					require("dap").goto_()
+				end,
+				desc = "Go to Line (No Execute)",
+			},
+			{
+				"<leader>di",
+				function()
+					require("dap").step_into()
+				end,
+				desc = "Step Into",
+			},
+			{
+				"<leader>dj",
+				function()
+					require("dap").down()
+				end,
+				desc = "Down",
+			},
+			{
+				"<leader>dk",
+				function()
+					require("dap").up()
+				end,
+				desc = "Up",
+			},
+			{
+				"<leader>dl",
+				function()
+					require("dap").run_last()
+				end,
+				desc = "Run Last",
+			},
+			{
+				"<leader>do",
+				function()
+					require("dap").step_out()
+				end,
+				desc = "Step Out",
+			},
+			{
+				"<leader>dO",
+				function()
+					require("dap").step_over()
+				end,
+				desc = "Step Over",
+			},
+			{
+				"<leader>dP",
+				function()
+					require("dap").pause()
+				end,
+				desc = "Pause",
+			},
+			{
+				"<leader>dr",
+				function()
+					require("dap").repl.toggle()
+				end,
+				desc = "Toggle REPL",
+			},
+			{
+				"<leader>ds",
+				function()
+					require("dap").session()
+				end,
+				desc = "Session",
+			},
+			{
+				"<leader>dt",
+				function()
+					require("dap").terminate()
+				end,
+				desc = "Terminate",
+			},
+			{
+				"<leader>dw",
+				function()
+					require("dap.ui.widgets").hover()
+				end,
+				desc = "Widgets",
+			},
 		},
 
 		config = function()
 			vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+			local dap = require("dap")
+			dap.adapters["coreclr"] = {
+				type = "executable",
+				command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
+			dap.adapters["pwa-node"] = {
+				type = "executable",
+				command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/js-debug-adapter",
+				args = { "${port}" },
+			}
+			dap.adapters.firefox = {
+				type = "executable",
+				command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/firefox-debug-adapter"
+			}
+      dap.configurations.typescript = {
+        {
+          name = 'Debug with Firefox',
+          type = 'firefox',
+          request = 'launch',
+          reAttach = true,
+          url = 'http://localhost:3000',
+          webRoot = '${workspaceFolder}',
+          firefoxExecutable = '/usr/bin/firefox'
+        }
+      }
 		end,
 	},
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "nvim-neotest/nvim-nio" },
 		keys = {
-			{ "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
-			{ "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+			{
+				"<leader>du",
+				function()
+					require("dapui").toggle({})
+				end,
+				desc = "Dap UI",
+			},
+			{
+				"<leader>de",
+				function()
+					require("dapui").eval()
+				end,
+				desc = "Eval",
+				mode = { "n", "v" },
+			},
 		},
 		opts = {},
 		config = function(_, opts)
@@ -50,14 +191,18 @@ return {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close({})
 			end
-			dap.adapters.coreclr = {
-				type = "executable",
-				command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/netcoredbg",
-				args = { "--interpreter=vscode" },
-			}
+			dap.listeners.after.event_stopped["auto-center"] = function()
+				vim.api.nvim_create_autocmd("CursorMoved", {
+					once = true,
+					callback = function()
+						vim.cmd.normal("zz")
+					end,
+				})
+			end
 		end,
 	},
-  { "nvim-neotest/nvim-nio" };
+	{ "theHamsta/nvim-dap-virtual-text" },
+	{ "nvim-neotest/nvim-nio" },
 	{
 		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = "mason.nvim",

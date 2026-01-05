@@ -103,3 +103,4 @@ DaemonSet
 istioctl
 podmonitor
 servicemonitors
+trocín
