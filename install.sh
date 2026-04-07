@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-NEOVIM_VERSION=v0.11.1
-TREE_SITTER_VERSION=v0.25.3
-LUA_VERSION=5.1
-LUAROCKS_VERSION=3.11.1
+NEOVIM_VERSION=v0.12.1
+TREE_SITTER_VERSION=v0.26.8
+LUA_VERSION=5.5
+LUAROCKS_VERSION=3.13.0
 
 setup_neovim() {
 
@@ -64,7 +64,7 @@ setup_neovim() {
     echo "Removing previous Treesitter parsers..."
     nvim --headless "+TSUninstall all" +qa
     echo "Updating Treesitter parsers..."
-    nvim --headless "+TSUpdateSync" +qa
+    nvim --headless "+TSUpdate" +qa
 
 }
 
