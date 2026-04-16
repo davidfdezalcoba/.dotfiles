@@ -37,8 +37,8 @@ vim.opt.laststatus = 2
 vim.opt.statusline = "%F%m%=%l/%L:%c"
 
 vim.opt.spelllang = "es,en_gb"
-vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "expr"
 vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99
 

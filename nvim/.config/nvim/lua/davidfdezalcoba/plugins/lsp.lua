@@ -35,19 +35,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.pack.add({
-  { src = "https://github.com/neovim/nvim-lspconfig", },
-  { src = "https://github.com/williamboman/mason.nvim", },
-  { src = "https://github.com/williamboman/mason-lspconfig.nvim", },
-  { src = "https://github.com/hrsh7th/cmp-nvim-lsp", },
-  { src = "https://github.com/hrsh7th/cmp-buffer", },
-  { src = "https://github.com/hrsh7th/cmp-path", },
-  { src = "https://github.com/hrsh7th/cmp-cmdline", },
-  { src = "https://github.com/hrsh7th/nvim-cmp", },
-  { src = "https://github.com/L3MON4D3/LuaSnip", },
-  { src = "https://github.com/saadparwaiz1/cmp_luasnip", },
-  { src = "https://github.com/j-hui/fidget.nvim", },
-  { src = "https://github.com/onsails/lspkind-nvim", },
-  { src = "https://github.com/nvimdev/lspsaga.nvim", },
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/williamboman/mason.nvim" },
+	{ src = "https://github.com/williamboman/mason-lspconfig.nvim" },
+	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+	{ src = "https://github.com/hrsh7th/cmp-buffer" },
+	{ src = "https://github.com/hrsh7th/cmp-path" },
+	{ src = "https://github.com/hrsh7th/cmp-cmdline" },
+	{ src = "https://github.com/hrsh7th/nvim-cmp" },
+	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	{ src = "https://github.com/saadparwaiz1/cmp_luasnip" },
+	{ src = "https://github.com/j-hui/fidget.nvim" },
+	{ src = "https://github.com/onsails/lspkind-nvim" },
+	{ src = "https://github.com/nvimdev/lspsaga.nvim" },
 })
 
 require("fidget").setup()
@@ -103,12 +103,45 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
+local yamllsconfig = {
+	format = {
+		enable = true,
+	},
+	completion = true,
+	hover = true,
+	validate = true,
+	schemaStore = {
+		enable = true,
+	},
+	schemas = {
+		kubernetes = {
+      "k8s/**/*.yaml",
+      "manifests/**/*.yaml",
+      "kubernetes-manifests/**/*.yaml",
+      "templates/**/*.yaml",
+    },
+	},
+	kubernetesCRDStore = {
+		enable = true,
+	},
+	redhat = {
+		telemetry = {
+			enabled = false,
+		},
+	},
+}
+
 vim.lsp.config("yamlls", {
 	settings = {
-		yaml = {
-			schemas = {
-				["kubernetes"] = "/*.yaml",
-				["none"] = "/Chart.yaml",
+		yaml = yamllsconfig,
+	},
+})
+
+vim.lsp.config("helm_ls", {
+	settings = {
+		["helm-ls"] = {
+			yamlls = {
+				config = yamllsconfig,
 			},
 		},
 	},

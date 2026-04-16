@@ -5,7 +5,7 @@ vim.pack.add({
 	{ src = "https://github.com/mbbill/undotree", },
 	{ src = "https://github.com/tpope/vim-fugitive", },
 	{ src = "https://github.com/taybart/b64.nvim", },
-	{ src = "https://github.com/towolf/vim-helm", }, -- ft = { "helm", "mustache" } },
+	{ src = "https://github.com/qvalentin/helm-ls.nvim", }, -- ft = { "helm", "mustache" } },
 	{ src = "https://github.com/google/vim-jsonnet", }, -- ft = { "jsonnet" } },
 	{ src = "https://github.com/lepture/vim-jinja", }, -- ft = { "jinja2", "j2" } },
 	{ src = "https://github.com/prisma/vim-prisma", }, -- ft = { "prisma" } },
