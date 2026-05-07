@@ -85,6 +85,10 @@
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-treesitter-context": {
+      "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
     "obsidian.nvim": {
       "rev": "dec6573816767eaa9596cabc1593f45a2f7821ee",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"

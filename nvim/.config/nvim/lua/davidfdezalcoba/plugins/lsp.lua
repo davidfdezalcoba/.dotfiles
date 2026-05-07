@@ -47,7 +47,6 @@ vim.pack.add({
 	{ src = "https://github.com/saadparwaiz1/cmp_luasnip" },
 	{ src = "https://github.com/j-hui/fidget.nvim" },
 	{ src = "https://github.com/onsails/lspkind-nvim" },
-	{ src = "https://github.com/nvimdev/lspsaga.nvim" },
 })
 
 require("fidget").setup()
